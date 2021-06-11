@@ -1,7 +1,7 @@
 // Patch the Notification object...
 const handler = {
     construct(target, args) {
-        fetch("http://127.0.0.1:5000/stream/twitter", {
+        fetch("https://cryptopulse.in/stream/twitter", {
             method: "post",
             headers: {
                 "Accept": "application/json",
