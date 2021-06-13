@@ -15,7 +15,7 @@ profile.set_preference("security.csp.enable", False)
 profile.set_preference("security.OCSP.enabled", 0)
 
 options = FirefoxOptions()
-options.headless = True
+# options.headless = True
 
 
 def start(driver):
