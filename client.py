@@ -1,7 +1,7 @@
 import os
 
 from selenium import webdriver
-from selenium.webdriver import ActionChains, FirefoxProfile
+from selenium.webdriver import ActionChains, FirefoxProfile, FirefoxOptions
 
 config_path = os.path.dirname(__file__)
 
@@ -13,6 +13,9 @@ profile = FirefoxProfile()
 profile.set_preference("permissions.default.desktop-notification", 1)
 profile.set_preference("security.csp.enable", False)
 profile.set_preference("security.OCSP.enabled", 0)
+
+options = FirefoxOptions()
+options.headless = True
 
 
 def start(driver):
@@ -40,7 +43,7 @@ def start(driver):
 
 
 if __name__ == "__main__":
-    driver = webdriver.Firefox(firefox_profile=profile)
+    driver = webdriver.Firefox(firefox_profile=profile, firefox_options=options)
     driver.install_addon(os.path.abspath(EXTENSION_PATH), temporary=True)
     try:
         print("Initiating the client...")
